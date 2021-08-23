@@ -39,7 +39,7 @@ export default function Home() {
               </p>
               <ButtonLink
                 variant='secondary'
-                href='https://akademik.its.ac.id/'
+                href='https://akademik.its.ac.id/myitsauth.php'
               >
                 Open My ITS
               </ButtonLink>
