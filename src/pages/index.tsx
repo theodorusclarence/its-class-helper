@@ -100,11 +100,19 @@ export default function Home() {
             <div className='space-y-4'>
               <h3>5. Open Link</h3>
               <p className='text-gray-300 !mt-2'>
-                https://akademik.its.ac.id/lv_peserta.php?mkJur=
+                https://akademik.its.ac.id/lv_peserta.php
+                <br />? mkJur=
                 <span className='text-primary-400'>{matkul?.mkjur}</span>
-                {'&'}mkID=
+                <br />
+                {'&'}
+                mkID=
                 <span className='text-primary-400'>{matkul?.kode}</span>
-                {'&'}mkSem=1{'&'}mkThn=2021{'&'}mkKelas=
+                <br />
+                {'&'}
+                mkSem=1{'&'}mkThn=2021
+                <br />
+                {'&'}
+                mkKelas=
                 <span className='text-primary-400'>{kelas.toUpperCase()}</span>
               </p>
 
