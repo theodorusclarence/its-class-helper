@@ -25,7 +25,7 @@ export default function Home() {
       <Seo />
 
       <main>
-        <section className='bg-dark'>
+        <section className='relative bg-dark'>
           <div className='min-h-screen py-16 space-y-10 text-white layout'>
             <h1 className='mb-8'>Daftar Kelas Informatika</h1>
             <div className='space-y-4'>
@@ -70,7 +70,7 @@ export default function Home() {
               <select
                 name='select'
                 id='matkul'
-                className='py-2 pl-4 pr-8 border border-gray-700 rounded-lg bg-dark'
+                className='max-w-xs py-2 pl-4 pr-8 border border-gray-700 rounded-lg bg-dark'
                 value={matkul?.kode}
                 onChange={handleMatkul}
               >
