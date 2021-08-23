@@ -6,6 +6,7 @@ import Seo from '@/components/Seo';
 import Footer from '@/components/Footer';
 import CustomLink from '@/components/CustomLink';
 import ButtonLink from '@/components/ButtonLink';
+import FaqSection from '@/components/FaqSection';
 
 export default function Home() {
   const [sem, setSem] = React.useState<string>('5');
@@ -31,9 +32,9 @@ export default function Home() {
             <div className='space-y-4'>
               <h3>1. Login MyITS SI Akademik</h3>
               <p className='text-gray-300 !mt-2'>
-                Buka sampai muncul{' '}
+                Buka sampai <b>SIAKAD</b>, jangan sampe dashboard doang.{' '}
                 <CustomLink href='https://i.imgur.com/aAf0YKh.png'>
-                  tampilan seperti ini
+                  Contoh tampilan seperti ini
                 </CustomLink>
               </p>
               <ButtonLink
@@ -127,6 +128,8 @@ export default function Home() {
                 Open Daftar Kelas
               </ButtonLink>
             </div>
+
+            <FaqSection />
           </div>
           <Footer />
         </section>
