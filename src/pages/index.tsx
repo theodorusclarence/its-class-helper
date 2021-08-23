@@ -47,7 +47,7 @@ export default function Home() {
               <h3>2. Pilih Semester</h3>
               <p className='text-gray-300 !mt-2'>
                 Belom lengkap, minta bantu{' '}
-                <CustomLink href='https://github.com/theodorusclarence/myits-class-helper/blob/main/pages/index.jsx#L100-L129'>
+                <CustomLink href='https://github.com/theodorusclarence/its-class-helper/blob/main/src/data/matkul.ts'>
                   PR ke repo
                 </CustomLink>
               </p>
