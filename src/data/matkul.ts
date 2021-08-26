@@ -7,8 +7,8 @@ export type DataMatkul = {
 
 export const dataMatkul: Array<DataMatkul> = [
   { mkjur: '51100', sem: '1', kode: 'IF4101', nama: 'Dasar Pemrograman' },
-  { mkjur: '51100', sem: '3', kode: 'IF4201', nama: 'Sistem Digital' },
-  { mkjur: '51100', sem: '3', kode: 'IF4202', nama: 'Struktur Data' },
+  { mkjur: '51100', sem: '2', kode: 'IF4201', nama: 'Sistem Digital' },
+  { mkjur: '51100', sem: '2', kode: 'IF4202', nama: 'Struktur Data' },
   {
     mkjur: '51100',
     sem: '3',
