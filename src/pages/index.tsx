@@ -55,7 +55,7 @@ export default function Home() {
               <select
                 name='select'
                 id='semester'
-                className='py-2 pl-4 pr-8 border border-gray-700 rounded-lg bg-dark'
+                className='py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
                 value={sem}
                 onChange={(e) => setSem(e.target.value)}
               >
@@ -71,7 +71,7 @@ export default function Home() {
               <select
                 name='select'
                 id='matkul'
-                className='max-w-xs py-2 pl-4 pr-8 border border-gray-700 rounded-lg bg-dark'
+                className='max-w-xs py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
                 value={matkul?.kode}
                 onChange={handleMatkul}
               >
@@ -87,7 +87,7 @@ export default function Home() {
               <select
                 name='select'
                 id=''
-                className='py-2 pl-4 pr-8 border border-gray-700 rounded-lg bg-dark'
+                className='py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
                 value={kelas}
                 onChange={(e) => setKelas(e.target.value)}
               >

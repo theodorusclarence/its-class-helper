@@ -7,7 +7,7 @@ import NextImage from './NextImage';
 export default function FaqSection() {
   return (
     <Disclosure as='div'>
-      <Disclosure.Button className='inline-flex items-center gap-2 text-lg font-bold text-gray-300 md:text-xl hover:text-primary-400'>
+      <Disclosure.Button className='inline-flex items-center gap-2 text-lg font-bold text-gray-300 md:text-xl hover:text-primary-400 focus-visible:text-primary-400'>
         <HiQuestionMarkCircle className='flex-shrink-0' />{' '}
         <span>Not working? Click here</span>
       </Disclosure.Button>
