@@ -23,6 +23,13 @@ class MyDocument extends Document {
             type='font/woff2'
             crossOrigin='anonymous'
           />
+          <script
+            async
+            defer
+            data-website-id='ddf694b8-dd19-4d5b-aa98-8f07430d6e4c'
+            src='https://umami.thcl.dev/umami.js'
+            data-domains='class.thcl.dev'
+          />
           <link
             rel='apple-touch-icon'
             sizes='57x57'
