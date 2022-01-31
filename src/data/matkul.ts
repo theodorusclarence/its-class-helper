@@ -106,6 +106,12 @@ export const dataMatkul: Array<DataMatkul> = [
   },
   {
     mkjur: '51100',
+    sem: '6',
+    kode: 'IF4902',
+    nama: 'Pengembangan Analisis Algoritma',
+  },
+  {
+    mkjur: '51100',
     sem: '7',
     kode: 'IF4701',
     nama: 'Keamanan Informasi dan Jaringan',
