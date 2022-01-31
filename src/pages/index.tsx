@@ -9,9 +9,9 @@ import ButtonLink from '@/components/ButtonLink';
 import FaqSection from '@/components/FaqSection';
 
 export default function Home() {
-  const [sem, setSem] = React.useState<string>('5');
+  const [sem, setSem] = React.useState<string>('6');
   const [matkul, setMatkul] = React.useState<DataMatkul | undefined>(
-    dataMatkul.find((datum) => datum.kode === 'IF4501')
+    dataMatkul.find((datum) => datum.kode === 'IF4602')
   );
   const [kelas, setKelas] = React.useState<string>('A');
 
@@ -71,7 +71,7 @@ export default function Home() {
               <select
                 name='select'
                 id='matkul'
-                className='max-w-xs py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
+                className='w-full max-w-sm  py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
                 value={matkul?.kode}
                 onChange={handleMatkul}
               >
@@ -110,7 +110,7 @@ export default function Home() {
                 <span className='text-primary-400'>{matkul?.kode}</span>
                 <br />
                 {'&'}
-                mkSem=1{'&'}mkThn=2021
+                mkSem=2{'&'}mkThn=2021
                 <br />
                 {'&'}
                 mkKelas=
@@ -123,7 +123,7 @@ export default function Home() {
                   matkul?.mkjur
                 }&mkID=${
                   matkul?.kode
-                }&mkSem=1&mkThn=2021&mkKelas=${kelas.toUpperCase()}`}
+                }&mkSem=2&mkThn=2021&mkKelas=${kelas.toUpperCase()}`}
               >
                 Open Daftar Kelas
               </ButtonLink>

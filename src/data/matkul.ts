@@ -64,6 +64,48 @@ export const dataMatkul: Array<DataMatkul> = [
   },
   {
     mkjur: '51100',
+    sem: '6',
+    kode: 'IF4602',
+    nama: 'Pemrograman Jaringan',
+  },
+  {
+    mkjur: '51100',
+    sem: '6',
+    kode: 'IF4603',
+    nama: 'Rekayasa Kebutuhan',
+  },
+  {
+    mkjur: '51100',
+    sem: '6',
+    kode: 'IF4952',
+    nama: 'Pengolahan Citra Digital',
+  },
+  {
+    mkjur: '51100',
+    sem: '6',
+    kode: 'IF4922',
+    nama: 'Analisis Data Multivariat',
+  },
+  {
+    mkjur: '51100',
+    sem: '6',
+    kode: 'IF4605',
+    nama: 'Pemrograman Berbasis Kerangka Kerja',
+  },
+  {
+    mkjur: '51100',
+    sem: '6',
+    kode: 'IF4601',
+    nama: 'Interaksi Manusia dan Komputer',
+  },
+  {
+    mkjur: '51100',
+    sem: '6',
+    kode: 'IF4604',
+    nama: 'Teori Graf dan Otomata',
+  },
+  {
+    mkjur: '51100',
     sem: '7',
     kode: 'IF4701',
     nama: 'Keamanan Informasi dan Jaringan',
@@ -71,4 +113,11 @@ export const dataMatkul: Array<DataMatkul> = [
   { mkjur: '51100', sem: '7', kode: 'IF4702', nama: 'Pra-Tugas Akhir' },
   { mkjur: '51100', sem: '8', kode: 'IF4801', nama: 'Kerja Praktik' },
   { mkjur: '51100', sem: '8', kode: 'IF4802', nama: 'Tugas Akhir' },
+  { mkjur: '51100', sem: '8', kode: 'IF4914', nama: 'Teknologi IoT' },
+  {
+    mkjur: '51100',
+    sem: '8',
+    kode: 'IF4972',
+    nama: 'Penjaminan Mutu Perangkat Lunak',
+  },
 ];
