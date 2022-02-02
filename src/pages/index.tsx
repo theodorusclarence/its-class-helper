@@ -26,6 +26,9 @@ export default function Home() {
     value: item.kode,
   }));
 
+  const mkSemester = 2;
+  const mkYear = 2021;
+
   return (
     <>
       <Seo />
@@ -107,7 +110,8 @@ export default function Home() {
               <h3>5. Open Link</h3>
               <p className='text-gray-700 !mt-2'>
                 https://akademik.its.ac.id/lv_peserta.php
-                <br />? mkJur=
+                <br />
+                ?mkJur=
                 <span className='text-primary-400'>{matkul?.mkjur}</span>
                 <br />
                 {'&'}
@@ -115,7 +119,8 @@ export default function Home() {
                 <span className='text-primary-400'>{matkul?.kode}</span>
                 <br />
                 {'&'}
-                mkSem=2{'&'}mkThn=2021
+                mkSem={mkSemester}
+                {'&'}mkThn={mkYear}
                 <br />
                 {'&'}
                 mkKelas=
@@ -126,7 +131,7 @@ export default function Home() {
                 variant='secondary'
                 href={`https://akademik.its.ac.id/lv_peserta.php?mkJur=${matkul?.mkjur}&mkID=${
                   matkul?.kode
-                }&mkSem=2&mkThn=2021&mkKelas=${kelas.toUpperCase()}`}
+                }&mkSem=${mkSemester}&mkThn=${mkYear}&mkKelas=${kelas.toUpperCase()}`}
               >
                 Open Daftar Kelas
               </ButtonLink>
