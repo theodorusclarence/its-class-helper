@@ -12,7 +12,7 @@ import FaqSection from '@/components/FaqSection';
 
 export default function Home() {
   const [sem, setSem] = React.useState<string>('6');
-  const filteredData = dataMatkul.filter((datum) => datum.sem === sem);
+  const filteredData = React.useMemo(() => dataMatkul.filter((datum) => datum.sem === sem), [sem]);
 
   const [matkul, setMatkul] = React.useState<DataMatkul>(filteredData[0]);
   React.useEffect(() => {
