@@ -7,9 +7,8 @@ import NextImage from './NextImage';
 export default function FaqSection() {
   return (
     <Disclosure as='div'>
-      <Disclosure.Button className='inline-flex items-center gap-2 text-lg font-bold text-gray-300 md:text-xl hover:text-primary-400 focus-visible:text-primary-400'>
-        <HiQuestionMarkCircle className='flex-shrink-0' />{' '}
-        <span>Not working? Click here</span>
+      <Disclosure.Button className='inline-flex items-center gap-2 text-lg font-bold text-gray-700 md:text-xl hover:text-primary-400 focus-visible:text-primary-400'>
+        <HiQuestionMarkCircle className='flex-shrink-0' /> <span>Not working? Click here</span>
       </Disclosure.Button>
 
       <Transition
@@ -23,17 +22,11 @@ export default function FaqSection() {
         <Disclosure.Panel className='mt-4 space-y-4'>
           <div className='space-y-2'>
             <p>Kalo muncul error kaya gini</p>
-            <NextImage
-              src='/images/error1.png'
-              width='410'
-              height='74'
-              alt='Error: Maaf anda tidak berhak akses'
-            />
+            <NextImage src='/images/error1.png' width='410' height='74' alt='Error: Maaf anda tidak berhak akses' />
           </div>
           <div className='space-y-2'>
             <p>
-              Pastiin di <b>Step 1</b>, udah masuk sampe <b>SIAKAD</b>, bukan
-              sampe dashboard doang
+              Pastiin di <b>Step 1</b>, udah masuk sampe <b>SIAKAD</b>, bukan sampe dashboard doang
             </p>
             <NextImage
               src='/images/troubleshoot.png'

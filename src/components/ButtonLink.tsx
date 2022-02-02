@@ -5,12 +5,7 @@ type ButtonLinkProps = {
   variant?: 'primary' | 'secondary';
 } & UnstyledLinkProps;
 
-export default function ButtonLink({
-  children,
-  className = '',
-  variant = 'primary',
-  ...rest
-}: ButtonLinkProps) {
+export default function ButtonLink({ children, className = '', variant = 'primary', ...rest }: ButtonLinkProps) {
   return (
     <UnstyledLink
       {...rest}
@@ -19,7 +14,7 @@ export default function ButtonLink({
         'border border-gray-600',
         {
           'bg-dark text-white': variant === 'primary',
-          'bg-white text-dark hover:bg-gray-200 hover:text-dark transition-colors':
+          'bg-white text-dark border-gray-300 hover:bg-gray-200 hover:text-dark transition-colors':
             variant === 'secondary',
         },
         className

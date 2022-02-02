@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import * as React from 'react';
+import Select from 'react-select';
 
 import { DataMatkul, dataMatkul } from '@/data/matkul';
 
@@ -10,43 +12,41 @@ import FaqSection from '@/components/FaqSection';
 
 export default function Home() {
   const [sem, setSem] = React.useState<string>('6');
-  const [matkul, setMatkul] = React.useState<DataMatkul | undefined>(
-    dataMatkul.find((datum) => datum.kode === 'IF4602')
-  );
-  const [kelas, setKelas] = React.useState<string>('A');
-
   const filteredData = dataMatkul.filter((datum) => datum.sem === sem);
 
-  const handleMatkul = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setMatkul(dataMatkul.find((datum) => datum.kode === e.target.value));
-  };
+  const [matkul, setMatkul] = React.useState<DataMatkul>(filteredData[0]);
+  React.useEffect(() => {
+    setMatkul(filteredData[0]);
+  }, [filteredData]);
+
+  const [kelas, setKelas] = React.useState<string>('A');
+
+  const matkulOptions = filteredData.map((item) => ({
+    label: item.nama,
+    value: item.kode,
+  }));
 
   return (
     <>
       <Seo />
 
       <main>
-        <section className='relative bg-dark'>
-          <div className='min-h-screen py-16 space-y-10 text-white layout'>
+        <section className='relative'>
+          <div className='min-h-screen py-16 space-y-10 layout'>
             <h1 className='mb-8'>Daftar Kelas Informatika</h1>
             <div className='space-y-4'>
               <h3>1. Login MyITS SI Akademik</h3>
-              <p className='text-gray-300 !mt-2'>
+              <p className='text-gray-700 !mt-2'>
                 Buka sampai <b>SIAKAD</b>, jangan sampe dashboard doang.{' '}
-                <CustomLink href='https://i.imgur.com/aAf0YKh.png'>
-                  Contoh tampilan seperti ini
-                </CustomLink>
+                <CustomLink href='https://i.imgur.com/aAf0YKh.png'>Contoh tampilan seperti ini</CustomLink>
               </p>
-              <ButtonLink
-                variant='secondary'
-                href='https://akademik.its.ac.id/myitsauth.php'
-              >
+              <ButtonLink variant='secondary' href='https://akademik.its.ac.id/myitsauth.php'>
                 Open My ITS
               </ButtonLink>
             </div>
             <div className='space-y-4'>
               <h3>2. Pilih Semester</h3>
-              <p className='text-gray-300 !mt-2'>
+              <p className='text-gray-700 !mt-2'>
                 Belom lengkap, minta bantu{' '}
                 <CustomLink href='https://github.com/theodorusclarence/its-class-helper/blob/main/src/data/matkul.ts'>
                   PR ke repo
@@ -55,7 +55,7 @@ export default function Home() {
               <select
                 name='select'
                 id='semester'
-                className='py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
+                className='py-2 pl-2 pr-8 border border-gray-300 rounded-md focus:border-primary-400 focus:ring-primary-400'
                 value={sem}
                 onChange={(e) => setSem(e.target.value)}
               >
@@ -68,26 +68,31 @@ export default function Home() {
             </div>
             <div className='space-y-4'>
               <h3>3. Pilih Matkul</h3>
-              <select
-                name='select'
-                id='matkul'
-                className='w-full max-w-sm  py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
-                value={matkul?.kode}
-                onChange={handleMatkul}
-              >
-                {filteredData.map((item) => (
-                  <option key={item.kode} value={item.kode}>
-                    {item.nama}
-                  </option>
-                ))}
-              </select>
+              <div className='react-select-custom'>
+                <Select
+                  key={`select-${sem}`}
+                  onChange={(newValue) => {
+                    setMatkul(dataMatkul.find((datum) => datum.kode === newValue?.value)!);
+                  }}
+                  defaultValue={matkulOptions[0]}
+                  theme={(theme) => ({
+                    ...theme,
+                    colors: {
+                      ...theme.colors,
+                      primary: '#0284C7',
+                    },
+                  })}
+                  className='max-w-md'
+                  options={matkulOptions}
+                />
+              </div>
             </div>
             <div className='space-y-4'>
               <h3>4. Kelas</h3>
               <select
                 name='select'
                 id=''
-                className='py-2 pl-4 pr-8 border border-gray-700 rounded-lg focus:border-primary-400 focus:ring-primary-400 bg-dark'
+                className='py-2 pl-2 pr-8 border border-gray-300 rounded-lg focus:border-primary-400 focus:ring-primary-400'
                 value={kelas}
                 onChange={(e) => setKelas(e.target.value)}
               >
@@ -100,7 +105,7 @@ export default function Home() {
             </div>
             <div className='space-y-4'>
               <h3>5. Open Link</h3>
-              <p className='text-gray-300 !mt-2'>
+              <p className='text-gray-700 !mt-2'>
                 https://akademik.its.ac.id/lv_peserta.php
                 <br />? mkJur=
                 <span className='text-primary-400'>{matkul?.mkjur}</span>
@@ -119,9 +124,7 @@ export default function Home() {
 
               <ButtonLink
                 variant='secondary'
-                href={`https://akademik.its.ac.id/lv_peserta.php?mkJur=${
-                  matkul?.mkjur
-                }&mkID=${
+                href={`https://akademik.its.ac.id/lv_peserta.php?mkJur=${matkul?.mkjur}&mkID=${
                   matkul?.kode
                 }&mkSem=2&mkThn=2021&mkKelas=${kelas.toUpperCase()}`}
               >
