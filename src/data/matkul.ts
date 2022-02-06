@@ -50,6 +50,7 @@ export const dataMatkul: Array<DataMatkul> = [
   { mkjur: '51100', sem: '6', kode: 'IF4601', nama: 'Interaksi Manusia dan Komputer' },
   { mkjur: '51100', sem: '6', kode: 'IF4935', nama: 'Game Cerdas' },
   { mkjur: '51100', sem: '6', kode: 'IF4602', nama: 'Pemrograman Jaringan' },
+  { mkjur: '51100', sem: '6', kode: 'IF4603', nama: 'Rekayasa Kebutuhan' },
   { mkjur: '51100', sem: '6', kode: 'IF4951', nama: 'Data Mining' },
   { mkjur: '51100', sem: '6', kode: 'IF4952', nama: 'Pengolahan Citra Digital' },
   { mkjur: '51100', sem: '6', kode: 'IF4971', nama: 'Arsitektur Perangkat Lunak' },
