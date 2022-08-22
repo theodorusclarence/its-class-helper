@@ -93,7 +93,7 @@ export default function Home() {
                 value={kelas}
                 onChange={(e) => setKelas(e.target.value)}
               >
-                {['A', 'B', 'C', 'D', 'E', 'F', 'G'].map((item) => (
+                {['A', 'B', 'C', 'D', 'E', 'F', 'G', '_'].map((item) => (
                   <option key={item} value={item}>
                     {item}
                   </option>
