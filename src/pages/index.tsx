@@ -119,13 +119,14 @@ export default function Home() {
                 {'&'}
                 mkKelas=
                 <span className='text-primary-400'>{kelas.toUpperCase()}</span>
+                {'&mkThnKurikulum=2018'}
               </p>
 
               <ButtonLink
                 variant='secondary'
                 href={`https://akademik.its.ac.id/lv_peserta.php?mkJur=${matkul?.mkjur}&mkID=${
                   matkul?.kode
-                }&mkSem=${mkSemester}&mkThn=${mkYear}&mkKelas=${kelas.toUpperCase()}`}
+                }&mkSem=${mkSemester}&mkThn=${mkYear}&mkKelas=${kelas.toUpperCase()}&mkThnKurikulum=2018`}
               >
                 Open Daftar Kelas
               </ButtonLink>
