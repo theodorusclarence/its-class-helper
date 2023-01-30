@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import CustomLink from '@/components/CustomLink';
 import ButtonLink from '@/components/ButtonLink';
 import FaqSection from '@/components/FaqSection';
+import { trackEvent } from '@/lib/analytics';
 
 export default function Home() {
   const [sem, setSem] = React.useState<string>('6');
@@ -123,6 +124,7 @@ export default function Home() {
               </p>
 
               <ButtonLink
+                onClick={() => trackEvent(`Semester ${matkul.sem} ${matkul.kode}-${matkul.nama}`, 'click')}
                 variant='secondary'
                 href={`https://akademik.its.ac.id/lv_peserta.php?mkJur=${matkul?.mkjur}&mkID=${
                   matkul?.kode
