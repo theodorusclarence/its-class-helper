@@ -124,7 +124,13 @@ export default function Home() {
               </p>
 
               <ButtonLink
-                onClick={() => trackEvent(`Semester ${matkul.sem} ${matkul.kode}-${matkul.nama}`, 'click')}
+                onClick={() =>
+                  trackEvent(`Check Class`, {
+                    semester: matkul.sem,
+                    kode: matkul.kode,
+                    nama: matkul.nama,
+                  })
+                }
                 variant='secondary'
                 href={`https://akademik.its.ac.id/lv_peserta.php?mkJur=${matkul?.mkjur}&mkID=${
                   matkul?.kode
