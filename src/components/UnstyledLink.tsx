@@ -1,45 +1,40 @@
 import clsx from 'clsx';
 import Link, { LinkProps } from 'next/link';
+import * as React from 'react';
 
 export type UnstyledLinkProps = {
   href: string;
   children: React.ReactNode;
   openNewTab?: boolean;
   className?: string;
-} & React.ComponentPropsWithoutRef<'a'> &
-  LinkProps;
+  nextLinkProps?: Omit<LinkProps, 'href'>;
+} & React.ComponentPropsWithRef<'a'>;
 
-export default function UnstyledLink({
-  children,
-  href,
-  openNewTab,
-  className,
-  ...rest
-}: UnstyledLinkProps) {
-  const isNewTab =
-    openNewTab !== undefined
-      ? openNewTab
-      : href && !href.startsWith('/') && !href.startsWith('#');
+const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
+  ({ children, href, openNewTab, className, nextLinkProps, ...rest }, ref) => {
+    const isNewTab = openNewTab !== undefined ? openNewTab : href && !href.startsWith('/') && !href.startsWith('#');
 
-  if (!isNewTab) {
-    return (
-      <Link href={href}>
-        <a {...rest} className={className}>
+    if (!isNewTab) {
+      return (
+        <Link href={href} ref={ref} className={className} {...rest} {...nextLinkProps}>
           {children}
-        </a>
-      </Link>
+        </Link>
+      );
+    }
+
+    return (
+      <a
+        ref={ref}
+        target='_blank'
+        rel='noopener noreferrer'
+        href={href}
+        {...rest}
+        className={clsx('cursor-newtab', className)}
+      >
+        {children}
+      </a>
     );
   }
+);
 
-  return (
-    <a
-      target='_blank'
-      rel='noopener noreferrer'
-      href={href}
-      {...rest}
-      className={clsx(className, 'cursor-[ne-resize]')}
-    >
-      {children}
-    </a>
-  );
-}
+export default UnstyledLink;
