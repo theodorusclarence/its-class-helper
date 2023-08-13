@@ -12,7 +12,7 @@ import FaqSection from '@/components/FaqSection';
 import { trackEvent } from '@/lib/analytics';
 
 export default function Home() {
-  const [sem, setSem] = React.useState<string>('6');
+  const [sem, setSem] = React.useState<string>('5');
   const filteredData = React.useMemo(() => dataMatkul.filter((datum) => datum.sem === sem), [sem]);
 
   const [matkul, setMatkul] = React.useState<DataMatkul>(filteredData[0]);
@@ -27,8 +27,8 @@ export default function Home() {
     value: item.kode,
   }));
 
-  const mkSemester = 2;
-  const mkYear = 2022;
+  const mkSemester = 1;
+  const mkYear = 2023;
 
   return (
     <>
@@ -120,7 +120,7 @@ export default function Home() {
                 {'&'}
                 mkKelas=
                 <span className='text-primary-400'>{kelas.toUpperCase()}</span>
-                {'&mkThnKurikulum=2018'}
+                {'&mkThnKurikulum=2023'}
               </p>
 
               <ButtonLink
@@ -134,7 +134,7 @@ export default function Home() {
                 variant='secondary'
                 href={`https://akademik.its.ac.id/lv_peserta.php?mkJur=${matkul?.mkjur}&mkID=${
                   matkul?.kode
-                }&mkSem=${mkSemester}&mkThn=${mkYear}&mkKelas=${kelas.toUpperCase()}&mkThnKurikulum=2018`}
+                }&mkSem=${mkSemester}&mkThn=${mkYear}&mkKelas=${kelas.toUpperCase()}&mkThnKurikulum=2023`}
               >
                 Open Daftar Kelas
               </ButtonLink>
