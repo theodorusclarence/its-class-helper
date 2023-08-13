@@ -1,19 +1,47 @@
-import * as React from 'react';
-import Image, { ImageProps } from 'next/image';
 import clsx from 'clsx';
+import Image, { ImageProps } from 'next/image';
+import * as React from 'react';
 
-export default function NextImage(props: ImageProps) {
-  const [status, setStatus] = React.useState('loading');
+export type NextImageProps = {
+  useSkeleton?: boolean;
+  imgClassName?: string;
+  blurClassName?: string;
+  alt: string;
+} & (
+  | { width: string | number; height: string | number }
+  | { layout: 'fill'; width?: string | number; height?: string | number }
+) &
+  ImageProps;
+
+/**
+ *
+ * @description Must set width using `w-` className
+ * @param useSkeleton add background with pulse animation, don't use it if image is transparent
+ */
+export default function NextImage({
+  useSkeleton = false,
+  src,
+  width,
+  height,
+  alt,
+  className,
+  imgClassName,
+  blurClassName,
+  ...rest
+}: NextImageProps) {
+  const [status, setStatus] = React.useState(useSkeleton ? 'loading' : 'complete');
+  const widthIsSet = className?.includes('w-') ?? false;
 
   return (
-    <figure>
+    <figure style={!widthIsSet ? { width: `${width}px` } : undefined} className={className}>
       <Image
-        onLoadingComplete={() => setStatus('finish')}
-        className={clsx('bg-gray-600', props.className, {
-          'animate-pulse': status === 'loading',
-        })}
-        alt={props.alt}
-        {...props}
+        className={clsx(imgClassName, status === 'loading' && clsx('animate-pulse', blurClassName))}
+        src={src}
+        width={width}
+        height={height}
+        alt={alt}
+        onLoadingComplete={() => setStatus('complete')}
+        {...rest}
       />
     </figure>
   );
