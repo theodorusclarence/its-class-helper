@@ -10,9 +10,10 @@ import CustomLink from '@/components/CustomLink';
 import ButtonLink from '@/components/ButtonLink';
 import FaqSection from '@/components/FaqSection';
 import { trackEvent } from '@/lib/analytics';
+import { getSemester } from '@/lib/helper';
 
 export default function Home() {
-  const [sem, setSem] = React.useState<string>('5');
+  const [sem, setSem] = React.useState<string>('6');
   const filteredData = React.useMemo(() => dataMatkul.filter((datum) => datum.sem === sem), [sem]);
 
   const [matkul, setMatkul] = React.useState<DataMatkul>(filteredData[0]);
@@ -27,7 +28,7 @@ export default function Home() {
     value: item.kode,
   }));
 
-  const mkSemester = 1;
+  const mkSemester = getSemester();
   const mkYear = 2023;
 
   return (
