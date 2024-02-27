@@ -20,12 +20,20 @@ export function openGraph({
 }: OpenGraphType): string {
   const ogLogo = encodeURIComponent(logo);
   const ogSiteName = encodeURIComponent(siteName.trim());
-  const ogTemplateTitle = templateTitle
-    ? encodeURIComponent(templateTitle.trim())
-    : undefined;
+  const ogTemplateTitle = templateTitle ? encodeURIComponent(templateTitle.trim()) : undefined;
   const ogDesc = encodeURIComponent(description.trim());
 
   return `https://og.clarence.link/api/general?siteName=${ogSiteName}&description=${ogDesc}&logo=${ogLogo}${
     ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
   }`;
 }
+
+/**
+ *
+ * @returns 1 if the current month is between August and January, 2 if the current month is between February and July
+ */
+export const getSemester = (): number => {
+  const month = new Date().getMonth() + 1;
+  if (month >= 2 && month <= 7) return 2;
+  return 1;
+};
