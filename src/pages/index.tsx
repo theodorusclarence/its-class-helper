@@ -29,7 +29,7 @@ export default function Home() {
   }));
 
   const mkSemester = getSemester();
-  const mkYear = 2023;
+  const mkYear = new Date().getFullYear();
 
   return (
     <>
