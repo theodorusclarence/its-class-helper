@@ -10,7 +10,7 @@ import CustomLink from '@/components/CustomLink';
 import ButtonLink from '@/components/ButtonLink';
 import FaqSection from '@/components/FaqSection';
 import { trackEvent } from '@/lib/analytics';
-import { getSemester } from '@/lib/helper';
+import { getMKYear, getSemester } from '@/lib/helper';
 
 export default function Home() {
   const [sem, setSem] = React.useState<string>('6');
@@ -29,7 +29,7 @@ export default function Home() {
   }));
 
   const mkSemester = getSemester();
-  const mkYear = new Date().getFullYear();
+  const mkYear = getMKYear();
 
   return (
     <>
