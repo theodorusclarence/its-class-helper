@@ -37,3 +37,14 @@ export const getSemester = (): number => {
   if (month >= 2 && month <= 7) return 2;
   return 1;
 };
+
+/**
+ *
+ * @returns {number} current MK year based on the current date and semester
+ */
+export const getMKYear = (): number => {
+  const currentYear = new Date().getFullYear();
+  const currentSemester = getSemester();
+
+  return currentSemester === 2 ? currentYear - 1 : currentYear;
+};
